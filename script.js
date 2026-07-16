@@ -1,40 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. एक्टिव मेनू लिंक को हाइलाइट करने के लिए (Current Page Highlighter)
+    //(Current Page Highlighter)
     const currentUrl = window.location.pathname;
     const navLinks = document.querySelectorAll('nav ul li a');
 
     navLinks.forEach(link => {
-        // अगर लिंक का href हमारे करंट पेज के नाम से मैच करता है
+        // If the link's href matches our current page's name
         if (currentUrl.includes(link.getAttribute('href'))) {
-            // पुराने एक्टिव क्लास को हटाकर नए पर लगाना
+            // Removing the old active class and applying the new one
             document.querySelector('nav ul li a.active')?.classList.remove('active');
             link.classList.add('active');
         }
     });
 
-    // 2. कॉन्टैक्ट फॉर्म सबमिशन हैंडलर (Contact Form Simulation)
+    // 2. (Contact Form Simulation)
     const contactForm = document.querySelector('.contact-form');
 
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
-            // फॉर्म को नॉर्मल रीफ्रेश होने से रोकना
+            // Preventing a normal form refresh
             e.preventDefault();
 
-            // फॉर्म के इनपुट्स से डेटा निकालना
+            // Preventing a normal form refresh
             const name = this.querySelector('input[type="text"]').value;
             const email = this.querySelector('input[type="email"]').value;
             const message = this.querySelector('textarea').value;
 
-            // यूजर को एक सुंदर सा सक्सेस मैसेज दिखाना
+            // Showing a nice success message to the user
             alert(`Thank you, ${name}! Your message has been sent successfully.\nAnand will contact you soon at: ${email}`);
 
-            // फॉर्म को वापस खाली (Reset) करना
+            // Resetting the form
             this.reset();
         });
     }
 
-    // 3. बटन क्लिक पर स्मूद इफेक्ट्स (Console Logging for Testing)
+    // 3.(Console Logging for Testing)
     const buttons = document.querySelectorAll('.btn');
     buttons.forEach(btn => {
         btn.addEventListener('click', () => {
